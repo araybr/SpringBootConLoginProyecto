@@ -28,6 +28,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // Deshabilitar la protecccion csrf (Cross-Site Request Forgery)
                 .authorizeHttpRequests( authRequest -> authRequest
                         .requestMatchers("/auth/**").permitAll() // Allow routes that starts with /auth/  (public routes)
+                        .requestMatchers("/api-docs").permitAll() // Allow routes that starts with /auth/  (public routes)
                         .anyRequest().authenticated()) // Any other route requires authenticate
                 //.formLogin(Customizer.withDefaults())
                 .sessionManagement(sessionManager -> sessionManager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
